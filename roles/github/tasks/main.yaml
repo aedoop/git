@@ -1,1 +1,32 @@
 ---
+# config github
+
+- name: Generate github key
+  expect:
+    command: ssh-keygen -t rsa -C {{ hostvars[inventory_hostname].git_email }}
+    echo: true
+    creates: ~/.ssh/id_rsa
+    responses:
+      Enter file: ""
+      Enter passphrase: "{{ hostvars[inventory_hostname].git_ssh_pass }}"
+      Enter same passphrase: "{{ hostvars[inventory_hostname].git_ssh_pass }}"
+      (?i)Overwrite: "n"
+
+- name: Read SSH public key to authorize
+  command: cat ~/.ssh/id_rsa.pub
+  register: git_pub_key
+
+
+- name: Authorize key with GitHub
+  local_action:
+    module: github_key
+    name: Access Key for Some Machine
+    token: '{{ github_access_token }}'
+    pubkey: '{{ git_pub_key.stdout }}'
+
+
+- name: Git config credential
+  git_config:
+    scope: global
+    name: credential.helper
+    value: store

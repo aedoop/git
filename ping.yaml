@@ -1,10 +1,13 @@
 ---
-# This playbook  ping host
+# This playbook ping host
 
 - name: ping host
   hosts: git
   gather_facts: false
   tasks:
+    - name: debug
+      debug:
+        msg: "{{hostvars[inventory_hostname].git_ssh_pass}}"
     - name: ping
       ping:
 

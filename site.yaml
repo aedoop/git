@@ -1,5 +1,9 @@
 ---
-# This playbook delploy git ,config github
+# This playbook deploy and config git
 
-- hosts: git
-  
+- name: Deploy and config git
+  hosts: git
+  gather_facts: true
+  roles:
+    - git
+    - github

@@ -1,6 +1,6 @@
 ---
 
-- name: install the latest version of git
+- name: Install the latest version of git
   package:
     name: git
-    state: latest
+    state: present
