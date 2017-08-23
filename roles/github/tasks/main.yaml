@@ -13,7 +13,7 @@
       (?i)Overwrite: "{{ overwrite_response }}"
 
 - name: Read SSH public key to authorize
-  command: cat {{ git_key_file }}.pub
+  command: cat "{{ git_key_file }}.pub"
   register: git_pub_key
 
 

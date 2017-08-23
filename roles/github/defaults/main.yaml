@@ -1,5 +1,5 @@
 ---
 
 git_key_file: ~/.ssh/id_rsa
-overwrite_response: "n"
-github_access_token: 81565ac0c0da5dae710152613e35cec8f1d350a7
+overwrite_response: n
+github_access_token: 336e97ca7117902498d11d9230da4ac7908e52b9
