@@ -5,15 +5,15 @@
   expect:
     command: ssh-keygen -t rsa -C {{ hostvars[inventory_hostname].git_email }}
     echo: true
-    creates: ~/.ssh/id_rsa
+    creates: "{{ git_key_file }}"
     responses:
       Enter file: ""
       Enter passphrase: "{{ hostvars[inventory_hostname].git_ssh_pass }}"
       Enter same passphrase: "{{ hostvars[inventory_hostname].git_ssh_pass }}"
-      (?i)Overwrite: "n"
+      (?i)Overwrite: "{{ overwrite_response }}"
 
 - name: Read SSH public key to authorize
-  command: cat ~/.ssh/id_rsa.pub
+  command: cat {{ git_key_file }}.pub
   register: git_pub_key
 
 
