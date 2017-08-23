@@ -8,8 +8,8 @@
     creates: "{{ git_key_file }}"
     responses:
       Enter file: ""
-      Enter passphrase: "{{ hostvars[inventory_hostname].git_ssh_pass }}"
-      Enter same passphrase: "{{ hostvars[inventory_hostname].git_ssh_pass }}"
+      Enter passphrase: "{{ hostvars[inventory_hostname].git_pass }}"
+      Enter same passphrase: "{{ hostvars[inventory_hostname].git_pass }}"
       (?i)Overwrite: "{{ overwrite_response }}"
 
 - name: Read SSH public key to authorize
@@ -25,7 +25,19 @@
     pubkey: '{{ git_pub_key.stdout }}'
 
 
-- name: Git config credential
+- name: git config --global user.name "your name"
+  git_config:
+    scope: global
+    name: user.name
+    value: "{{ hostvars[inventory_hostname].git_user }}"
+
+- name: git config --global user.email you@example.com
+  git_config:
+    scope: global
+    name: user.email
+    value: "{{ hostvars[inventory_hostname].git_email }}"
+
+- name: git config --global credential.helper "store type"
   git_config:
     scope: global
     name: credential.helper

@@ -1,5 +1,5 @@
 [git]
-10.0.228.100 ansible_ssh_user="root" ansible_ssh_pass="toor" git_ssh_pass=toor1 git_email=2194488027@qq.com
+10.0.228.100 ansible_ssh_user="root" ansible_ssh_pass="toor" git_user=toor1 git_pass=toor1 git_email=2194488027@qq.com
 #10.0.228.101 git_ssh_pass=toor1 git_email=2194488027@qq.com
 #10.0.228.102 git_ssh_pass=toor2 git_email=2194488027@qq.com
 #10.0.228.103 git_ssh_pass=toor3 git_email=2194488027@qq.com
