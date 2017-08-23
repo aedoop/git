@@ -1,0 +1,11 @@
+---
+# This playbook ping host
+
+- name: ping host
+  hosts: git
+  gather_facts: false
+  tasks:
+    - name: ping
+      ping:
+
+
