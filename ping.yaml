@@ -1,5 +1,5 @@
 ---
-# This playbook ping host
+# This playbook  ping host
 
 - name: ping host
   hosts: git
