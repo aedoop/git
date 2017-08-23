@@ -1,5 +1,5 @@
 [git]
-10.0.255.250 git_ssh_pass=wzstiger git_email=2194488027@qq.com
+10.0.228.100 git_ssh_pass=wzstiger git_email=2194488027@qq.com
 
 [git:vars]
 ansible_ssh_user="root"
