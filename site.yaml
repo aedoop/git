@@ -1,2 +1,5 @@
 ---
+# This playbook delploy git ,config github
 
+- hosts: git
+  
