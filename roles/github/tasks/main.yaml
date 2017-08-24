@@ -15,6 +15,7 @@
 - name: Read SSH public key to authorize
   command: cat "{{ git_key_file }}.pub"
   register: git_pub_key
+  changed_when: false
 
 
 - name: Authorize key with GitHub
